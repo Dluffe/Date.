@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Our Date ❤️</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(#ffd6e7,#fff);
+  font-family:Arial;
+  overflow:hidden;
+}
+
+.card{
+  background:white;
+  padding:40px;
+  border-radius:25px;
+  text-align:center;
+  box-shadow:0 0 30px #ff9fc5;
+}
+
+h1{
+  color:#ff4f91;
+}
+
+button{
+  padding:15px 35px;
+  border:none;
+  border-radius:30px;
+  font-size:20px;
+  cursor:pointer;
+  margin:10px;
+}
+
+#yes{
+  background:#ff4f91;
+  color:white;
+}
+
+#no{
+  background:#ddd;
+  position:absolute;
+}
+
+input{
+  padding:12px;
+  border-radius:10px;
+  border:1px solid pink;
+}
+
+.heart{
+ position:absolute;
+ color:#ff5c9d;
+ animation:fall 5s infinite;
+}
+
+@keyframes fall{
+ from{top:-20px;}
+ to{top:100vh;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<h1>Will you go on a date with me? ❤️</h1>
+
+<p>Choose our special day ✨</p>
+
+<input type="date">
+
+<br>
+
+<button id="yes" onclick="yes()">YES ❤️</button>
+
+<button id="no" onmouseover="move()">NO 😢</button>
+
+<h2 id="text"></h2>
+
+</div>
+
+
+<script>
+
+function yes(){
+document.getElementById("text").innerHTML=
+"Yay! It's a date ❤️😍";
+}
+
+function move(){
+let btn=document.getElementById("no");
+btn.style.left=Math.random()*80+"%";
+btn.style.top=Math.random()*80+"%";
+}
+
+
+setInterval(()=>{
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"%";
+document.body.appendChild(h);
+
+setTimeout(()=>h.remove(),5000);
+
+},300);
+
+</script>
+
+</body>
+</html>
